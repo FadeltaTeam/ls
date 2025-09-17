@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هشدار انقضای لایسنس</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .content {
+            padding: 30px;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .warning-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .license-info {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .button {
+            display: inline-block;
+            background-color: #fd7e14;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            margin: 10px 5px;
+        }
+        .urgent {
+            color: #dc3545;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>هشدار انقضای لایسنس</h1>
+        </div>
+        
+        <div class="content">
+            <h2>سلام {{user_name}} عزیز!</h2>
+            
+            <div class="warning-box">
+                <h3>⚠️ لایسنس شما در حال انقضا است</h3>
+                <p>لایسنس مربوط به محصول <strong>{{product_name}}</strong> در تاریخ <strong>{{expiry_date}}</strong> منقضی خواهد شد.</p>
+                <p class="urgent">زمان باقیمانده: {{days_remaining}} روز</p>
+            </div>
+            
+            <div class="license-info">
+                <h4>اطلاعات لایسنس:</h4>
+                <p><strong>کلید لایسنس:</strong> {{license_key}}</p>
+                <p><strong>محصول:</strong> {{product_name}} (نسخه {{product_version}})</p>
+                <p><strong>تاریخ انقضا:</strong> {{expiry_date}}</p>
+                <p><strong>وضعیت فعلی:</strong> فعال</p>
+            </div>
+            
+            <h3>اقدامات لازم:</h3>
+            <ul>
+                <li>برای تمدید لایسنس، به داشبورد کاربری مراجعه کنید</li>
+                <li>در صورت انقضا، دسترسی به نرم‌افزار قطع خواهد شد</li>
+                <li>برای جلوگیری از اختلال، زودتر اقدام کنید</li>
+            </ul>
+            
+            <div style="text-align: center;">
+                <a href="{{renew_url}}" class="button">تمدید لایسنس</a>
+                <a href="{{dashboard_url}}" class="button" style="background-color: #6c757d;">مشاهده داشبورد</a>
+            </div>
+            
+            <p style="margin-top: 20px;">
+                <small>این ایمیل به صورت خودکار هنگامی ارسال می‌شود که لایسنس شما کمتر از ۷ روز تا انقضا زمان داشته باشد.</small>
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>برای دریافت راهنمایی بیشتر، با پشتیبانی تماس بگیرید.</p>
+            <p>پشتیبانی: {{support_email}} | تلفن: {{support_phone}}</p>
+            <p>ساعات کاری: شنبه تا چهارشنبه، ۸:۰۰ تا ۱۷:۰۰</p>
+        </div>
+    </div>
+</body>
+</html>

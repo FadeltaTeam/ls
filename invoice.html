@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>فاکتور پرداخت - {{invoice_number}}</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 1.5cm;
+        }
+        body {
+            font-family: 'XB Zar', 'B Nazanin', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .invoice {
+            border: 2px solid #34495e;
+            padding: 30px;
+            position: relative;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #bdc3c7;
+        }
+        .company-info {
+            text-align: right;
+        }
+        .company-logo {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .invoice-info {
+            text-align: left;
+            direction: ltr;
+        }
+        .invoice-title {
+            font-size: 28px;
+            color: #2c3e50;
+            margin: 0 0 10px 0;
+        }
+        .invoice-details {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .detail-label {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .detail-value {
+            color: #34495e;
+        }
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        .items-table th {
+            background-color: #34495e;
+            color: white;
+            padding: 12px;
+            text-align: right;
+        }
+        .items-table td {
+            padding: 10px;
+            border-bottom: 1px solid #bdc3c7;
+            text-align: right;
+        }
+        .items-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .total-section {
+            margin-top: 30px;
+            text-align: left;
+            direction: ltr;
+        }
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #bdc3c7;
+        }
+        .total-label {
+            font-weight: bold;
+        }
+        .grand-total {
+            font-size: 18px;
+            font-weight: bold;
+            color: #27ae60;
+            margin-top: 10px;
+        }
+        .payment-info {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #bdc3c7;
+            text-align: center;
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+        .terms {
+            text-align: right;
+            margin: 20px 0;
+            font-size: 12px;
+        }
+        .watermark {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 80px;
+            transform: rotate(-45deg);
+            top: 40%;
+            left: 25%;
+            color: #2c3e50;
+            z-index: -1;
+        }
+        .barcode {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .bank-info {
+            background-color: #e8f5e8;
+            border: 1px solid #27ae60;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice">
+        <div class="watermark">INVOICE</div>
+        
+        <div class="header">
+            <div class="company-info">
+                <div class="company-logo">
+                    <h2>{{company_name}}</h2>
+                </div>
+                <p>{{company_address}}</p>
+                <p>تلفن: {{company_phone}}</p>
+                <p>ایمیل: {{company_email}}</p>
+                <p>وبسایت: {{company_website}}</p>
+                <p>شماره اقتصادی: {{company_tax_id}}</p>
+            </div>
+            
+            <div class="invoice-info">
+                <h1 class="invoice-title">فاکتور پرداخت</h1>
+                <div class="invoice-details">
+                    <p><strong>شماره فاکتور:</strong> {{invoice_number}}</p>
+                    <p><strong>تاریخ صدور:</strong> {{issue_date}}</p>
+                    <p><strong>تاریخ انقضا:</strong> {{due_date}}</p>
+                    <p><strong>وضعیت:</strong> 
+                        <span style="color: {{status_color}};">{{invoice_status}}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="detail-grid">
+            <div>
+                <h3>اطلاعات فروشنده:</h3>
+                <p><strong>{{company_name}}</strong></p>
+                <p>{{company_address}}</p>
+                <p>تلفن: {{company_phone}}</p>
+                <p>ایمیل: {{company_email}}</p>
+            </div>
+            
+            <div>
+                <h3>اطلاعات خریدار:</h3>
+                <p><strong>{{customer_name}}</strong></p>
+                <p>{{customer_address}}</p>
+                <p>تلفن: {{customer_phone}}</p>
+                <p>ایمیل: {{customer_email}}</p>
+            </div>
+        </div>
+        
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th>ردیف</th>
+                    <th>شرح کالا/خدمات</th>
+                    <th>تعداد</th>
+                    <th>قیمت واحد</th>
+                    <th>مبلغ کل</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#items}}
+                <tr>
+                    <td>{{row_number}}</td>
+                    <td>{{description}}</td>
+                    <td>{{quantity}}</td>
+                    <td>{{unit_price}} {{currency}}</td>
+                    <td>{{total_price}} {{currency}}</td>
+                </tr>
+                {{/items}}
+            </tbody>
+        </table>
+        
+        <div class="total-section">
+            <div class="total-row">
+                <span class="total-label">جمع کل:</span>
+                <span>{{subtotal}} {{currency}}</span>
+            </div>
+            <div class="total-row">
+                <span class="total-label">تخفیف:</span>
+                <span>{{discount}} {{currency}}</span>
+            </div>
+            <div class="total-row">
+                <span class="total-label">مالیات ({{tax_rate}}%):</span>
+                <span>{{tax_amount}} {{currency}}</span>
+            </div>
+            <div class="total-row grand-total">
+                <span class="total-label">مبلغ قابل پرداخت:</span>
+                <span>{{grand_total}} {{currency}}</span>
+            </div>
+        </div>
+        
+        <div class="payment-info">
+            <h3>راه‌های پرداخت:</h3>
+            <div class="bank-info">
+                <p><strong>واریز به حساب بانکی:</strong></p>
+                <p>بانک: {{bank_name}}</p>
+                <p>شماره حساب: {{account_number}}</p>
+                <p>شبا: {{sheba_number}}</p>
+                <p>به نام: {{account_holder}}</p>
+            </div>
+            <p>💳 پرداخت آنلاین: <a href="{{payment_link}}">{{payment_link}}</a></p>
+        </div>
+        
+        <div class="barcode">
+            <img src="{{barcode_url}}" alt="Invoice Barcode" width="200" height="60">
+            <p>شماره فاکتور: {{invoice_number}}</p>
+        </div>
+        
+        <div class="terms">
+            <h4>شرایط و ضوابط:</h4>
+            <ol>
+                <li>این فاکتور به منزله رسید پرداخت می‌باشد.</li>
+                <li>مبلغ فاکتور باید تا تاریخ {{due_date}} پرداخت شود.</li>
+                <li>در صورت تأخیر در پرداخت، مشمول جریمه دیرکرد خواهد شد.</li>
+                <li>کالاها پس از پرداخت کامل قابل تحویل هستند.</li>
+                <li>مرجوعی کالا طبق قوانین شرکت امکان‌پذیر است.</li>
+            </ol>
+        </div>
+        
+        <div class="footer">
+            <p>با تشکر از اعتماد شما</p>
+            <p>{{company_name}} - {{company_slogan}}</p>
+            <p>تلفن پشتیبانی: {{support_phone}} | ایمیل: {{support_email}}</p>
+            <p>این فاکتور به صورت خودکار تولید شده و نیاز به مهر و امضا ندارد.</p>
+        </div>
+    </div>
+</body>
+</html>

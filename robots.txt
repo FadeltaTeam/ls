@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /vendor/
+Disallow: /logs/
+Disallow: /uploads/
+Disallow: /storage/
+Disallow: /cron/
+Disallow: /api/

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>گواهی لایسنس - {{license_key}}</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+        body {
+            font-family: 'XB Zar', 'B Nazanin', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .certificate {
+            border: 3px solid #2c3e50;
+            padding: 40px;
+            position: relative;
+            min-height: 29.7cm;
+            box-sizing: border-box;
+        }
+        .watermark {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 120px;
+            transform: rotate(-45deg);
+            top: 40%;
+            left: 20%;
+            color: #2c3e50;
+            z-index: -1;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 20px;
+        }
+        .header h1 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin: 0;
+        }
+        .header h2 {
+            color: #7f8c8d;
+            font-size: 20px;
+            margin: 10px 0 0 0;
+            font-weight: normal;
+        }
+        .content {
+            margin: 30px 0;
+        }
+        .license-details {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 12px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .detail-label {
+            font-weight: bold;
+            color: #2c3e50;
+            min-width: 150px;
+        }
+        .detail-value {
+            color: #34495e;
+            text-align: left;
+            direction: ltr;
+        }
+        .license-key-box {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+            border-radius: 8px;
+            border: 2px dashed #7f8c8d;
+        }
+        .license-key {
+            font-family: 'Courier New', monospace;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #2c3e50;
+        }
+        .signatures {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #bdc3c7;
+        }
+        .signature {
+            text-align: center;
+            width: 200px;
+        }
+        .signature-line {
+            border-top: 1px solid #2c3e50;
+            margin: 60px 0 10px 0;
+            width: 100%;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+        .security-features {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 10px;
+            color: #bdc3c7;
+        }
+        .verification {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .qr-code {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <div class="watermark">LICENSE CERTIFICATE</div>
+        
+        <div class="header">
+            <h1>گواهی لایسنس نرم‌افزاری</h1>
+            <h2>سیستم لایسنس پیشرفته</h2>
+        </div>
+        
+        <div class="content">
+            <p>این گواهی تأیید می‌کند که لایسنس زیر به صورت رسمی صادر شده و معتبر می‌باشد:</p>
+            
+            <div class="license-key-box">
+                <div class="license-key">{{license_key}}</div>
+            </div>
+            
+            <div class="license-details">
+                <div class="detail-row">
+                    <span class="detail-label">شماره گواهی:</span>
+                    <span class="detail-value">{{certificate_number}}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">تاریخ صدور:</span>
+                    <span class="detail-value">{{issue_date}}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">تاریخ انقضا:</span>
+                    <span class="detail-value">{{expiry_date}}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">محصول:</span>
+                    <span class="detail-value">{{product_name}} {{product_version}}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">مالک لایسنس:</span>
+                    <span class="detail-value">{{user_name}}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">ایمیل:</span>
+                    <span class="detail-value">{{user_email}}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">حداکثر فعال‌سازی:</span>
+                    <span class="detail-value">{{max_activations}} دامنه</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">وضعیت:</span>
+                    <span class="detail-value" style="color: #27ae60;">فعال</span>
+                </div>
+            </div>
+            
+            <div class="verification">
+                <h3>راه‌های تأیید اعتبار لایسنس:</h3>
+                <p>وبسایت: {{verification_url}}</p>
+                <p>کد پیگیری: {{verification_code}}</p>
+            </div>
+            
+            <div class="qr-code">
+                <!-- جایگذاری کد QR -->
+                <img src="{{qr_code_url}}" alt="QR Code" width="120" height="120">
+                <p>اسکن برای تأیید اعتبار</p>
+            </div>
+        </div>
+        
+        <div class="signatures">
+            <div class="signature">
+                <div class="signature-line"></div>
+                <p>امضای مدیر فنی</p>
+                <p>{{technical_manager}}</p>
+            </div>
+            <div class="signature">
+                <div class="signature-line"></div>
+                <p>امضای مدیر فروش</p>
+                <p>{{sales_manager}}</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>این سند به صورت خودکار تولید شده و نیاز به مهر و امضای فیزیکی ندارد.</p>
+            <p>شماره پیگیری: {{tracking_number}} | تاریخ تولید: {{generation_date}}</p>
+        </div>
+        
+        <div class="security-features">
+            Document ID: {{document_id}}
+        </div>
+    </div>
+</body>
+</html>

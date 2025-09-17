@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خوش آمدید به سیستم لایسنس</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .content {
+            padding: 30px;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>خوش آمدید به سیستم لایسنس پیشرفته</h1>
+        </div>
+        
+        <div class="content">
+            <h2>سلام {{user_name}} عزیز!</h2>
+            <p>حساب کاربری شما در سیستم لایسنس پیشرفته با موفقیت ایجاد شد.</p>
+            
+            <div class="info-box">
+                <p><strong>ایمیل:</strong> {{user_email}}</p>
+                <p><strong>تاریخ ایجاد حساب:</strong> {{signup_date}}</p>
+            </div>
+            
+            <p>اکنون می‌توانید از طریق لینک زیر وارد حساب کاربری خود شوید:</p>
+            
+            <div style="text-align: center;">
+                <a href="{{login_url}}" class="button">ورود به حساب کاربری</a>
+            </div>
+            
+            <p>در صورت فراموشی رمز عبور، می‌توانید از طریق صفحه ورود، گزینه "فراموشی رمز عبور" را انتخاب کنید.</p>
+            
+            <h3>امکانات سیستم:</h3>
+            <ul>
+                <li>مدیریت لایسنس‌های نرم‌افزاری</li>
+                <li>پیگیری وضعیت فعال‌سازی‌ها</li>
+                <li>دریافت گزارش‌های تحلیلی</li>
+                <li>پشتیبانی ۲۴ ساعته</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>این ایمیل به صورت خودکار ارسال شده است. لطفاً به آن پاسخ ندهید.</p>
+            <p>© 2023 سیستم لایسنس پیشرفته. تمام حقوق محفوظ است.</p>
+            <p><a href="{{privacy_policy_url}}" style="color: #6c757d;">سیاست حفظ حریم خصوصی</a> | 
+               <a href="{{terms_url}}" style="color: #6c757d;">قوانین و مقررات</a></p>
+        </div>
+    </div>
+</body>
+</html>
